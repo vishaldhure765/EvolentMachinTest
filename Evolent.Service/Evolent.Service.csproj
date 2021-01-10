@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Evolent.Domain\Evolent.Domain.csproj" />
+    <ProjectReference Include="..\Evolent.Repository\Evolent.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

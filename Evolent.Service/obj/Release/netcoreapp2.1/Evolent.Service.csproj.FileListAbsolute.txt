@@ -1,0 +1,14 @@
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Service.deps.json
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Service.dll
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Service.pdb
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Domain.dll
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Repository.dll
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Domain.pdb
+C:\EvolentMachinTest\Evolent\Evolent.Service\bin\Release\netcoreapp2.1\Evolent.Repository.pdb
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.csprojAssemblyReference.cache
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.csproj.CoreCompileInputs.cache
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.AssemblyInfoInputs.cache
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.AssemblyInfo.cs
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.csproj.CopyComplete
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.dll
+C:\EvolentMachinTest\Evolent\Evolent.Service\obj\Release\netcoreapp2.1\Evolent.Service.pdb

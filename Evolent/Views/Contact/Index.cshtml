@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="EvolentApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evolent</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
+
+
+    <!-- Theme style -->
+
+    <link href="~/css/toaster.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <div ng-controller="contactController1">
+        <div class="modal fade" id="modal-contactinfo" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <form ng-submit="submit(contactInformationForm.$valid)" name="contactInformationForm" novalidate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add Contact</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" class="form-control" ng-model="id">
+                            <div class="form-group">
+                                <label for="firstname">First Name :</label>
+                                <input type="text" tabindex="1" class="form-control" name="FirstName" id="txtFname" ng-model="contactForm.FirstName" maxlength="50" ng-required="true">
+                                <span style="color:red" ng-show="(contactInformationForm.$submitted && contactInformationForm.FirstName.$invalid)"> Please enter first name.</span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name :</label>
+                                <input type="text" tabindex="2" class="form-control" name="LastName" id="txtLName" ng-model="contactForm.LastName" maxlength="20" ng-required="true">
+                                <span style="color:red" ng-show="(contactInformationForm.$submitted && contactInformationForm.LastName.$invalid)"> Please enter last name.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email :</label>
+                                <input type="text" tabindex="3" class="form-control" name="Email" id="txtEmail" ng-model="contactForm.Email" ng-required="true">
+                                <span style="color:red" ng-show="(contactInformationForm.$submitted && contactInformationForm.Email.$invalid)"> Please enter email.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number :</label>
+                                <input type="text" tabindex="4" class="form-control" name="Phone" id="txtPhoneNumber" ng-model="contactForm.PhoneNumber" ng-required="true">
+                                <span style="color:red" ng-show="(contactInformationForm.$submitted && contactInformationForm.Phone.$invalid)"> Please enter phone number.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Status :</label>
+                                <div class="form-group clearfix">
+                                    <div class="icheck-success d-inline">
+                                        <input type="radio" tabindex="5" value="Y" ng-model="contactForm.Status" name="r1" id="radioSuccess1" checked>
+                                        <label for="radioSuccess1">
+                                            Active
+                                        </label>
+                                    </div>
+                                    <div class="icheck-danger d-inline">
+                                        <input type="radio" tabindex="6" value="N" ng-model="contactForm.Status" name="r1" id="radioDanger2">
+                                        <label for="radioDanger2">
+                                            InActive
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="Clear()">Reset</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title"><button type="button" class="btn btn-block btn-success" ng-click="AddContact()">Add Contact</button></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example23" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>PhoneNumber</th>
+                                            <th>Status(Active/InActive)</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="list in ContactList">
+                                            <td>{{list.firstName}}</td>
+                                            <td>{{list.lastName}}</td>
+                                            <td>{{list.email}}</td>
+                                            <td>{{list.phoneNumber}}</td>
+                                            <td ng-show="list.status==true">Active</td>
+                                            <td ng-show="list.status==false">InActive</td>
+                                            @*<td>{{list.status}}</td>*@
+                                            <td class="project-actions">
+                                                <a class="btn btn-info btn-sm" ng-click=edit(list)>
+                                                    Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" ng-click=delete(list.id)>
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+    </div>
+
+    <toaster-container toaster-options="{'time-out':3000}"></toaster-container>
+
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="https://adminlte.io/themes/v3/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    @*<script src="../../plugins/jszip/jszip.min.js"></script>
+        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="../../plugins/pdfmake/vfs_fonts.js"></script>*@
+    <script src="https://adminlte.io/themes/v3/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    @*<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>*@
+    <!-- AdminLTE App -->
+    <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js"></script>
+
+
+    <script src="https://adminlte.io/themes/v3/dist/js/demo.js"></script>
+    <script src="~/appjs/angular.min.js"></script>
+    <script src="~/appjs/App.js"></script>
+    <script src="~/appjs/ContactController.js"></script>
+    <script src="~/appjs/APIService.js"></script>
+    <script src="~/appjs/toaster.js"></script>
+    <script>
+        $(function () {
+
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+</body>
+
+</html>
+

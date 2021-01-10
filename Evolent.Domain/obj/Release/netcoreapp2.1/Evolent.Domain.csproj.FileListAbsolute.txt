@@ -1,0 +1,9 @@
+C:\EvolentMachinTest\Evolent\Evolent.Domain\bin\Release\netcoreapp2.1\Evolent.Domain.deps.json
+C:\EvolentMachinTest\Evolent\Evolent.Domain\bin\Release\netcoreapp2.1\Evolent.Domain.dll
+C:\EvolentMachinTest\Evolent\Evolent.Domain\bin\Release\netcoreapp2.1\Evolent.Domain.pdb
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.csprojAssemblyReference.cache
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.csproj.CoreCompileInputs.cache
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.AssemblyInfoInputs.cache
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.AssemblyInfo.cs
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.dll
+C:\EvolentMachinTest\Evolent\Evolent.Domain\obj\Release\netcoreapp2.1\Evolent.Domain.pdb
